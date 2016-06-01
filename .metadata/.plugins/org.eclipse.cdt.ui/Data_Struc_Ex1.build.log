@@ -1,0 +1,7 @@
+14:52:35 **** Incremental Build of configuration Debug for project Data_Struc_Ex1 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Data_Struc_Ex1.o" "..\\src\\Data_Struc_Ex1.c" 
+gcc -o Data_Struc_Ex1.exe "src\\Data_Struc_Ex1.o" 
+
+14:52:36 Build Finished (took 443ms)
+

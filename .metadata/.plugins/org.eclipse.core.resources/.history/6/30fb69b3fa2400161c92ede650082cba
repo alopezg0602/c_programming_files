@@ -1,0 +1,41 @@
+/*
+ ============================================================================
+ Name        : Pointer_Ex_20160528.c
+ Author      : 
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+
+#include <stdio.h>
+#include <conio.h>
+#include <time.h>
+
+int *reserva(int elementos);
+
+int main() {
+
+	int **ptr = NULL;
+	int c=0;
+
+	ptr = (int *) reserva(5);
+
+	for( c=0; c<5; c++)
+	{
+		*ptr = (int *) reserva(5);
+	}
+return EXIT_SUCCESS;
+}
+
+int *reserva(int elementos)
+{
+    int *ptrAux;
+    ptrAux = (int *)malloc(elementos*sizeof(int));
+    return ptrAux;
+}

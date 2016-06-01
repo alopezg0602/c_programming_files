@@ -1,0 +1,10 @@
+14:56:43 **** Incremental Build of configuration Debug for project C_Language_Programming ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Data_Struc_Ex1.o" "..\\src\\Data_Struc_Ex1.c" 
+..\src\Data_Struc_Ex1.c:14:6: warning: return type of 'main' is not 'int' [-Wmain]
+ void main(void)
+      ^
+gcc -o C_Language_Programming.exe "src\\Data_Struc_Ex1.o" 
+
+14:56:44 Build Finished (took 402ms)
+

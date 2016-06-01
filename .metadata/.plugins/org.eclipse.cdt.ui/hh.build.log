@@ -1,0 +1,23 @@
+12:26:32 **** Incremental Build of configuration Debug for project hh ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\hh.o" "..\\src\\hh.cpp" 
+..\src\hh.cpp: In function 'int main()':
+..\src\hh.cpp:16:19: error: 'srand' was not declared in this scope
+  srand (time(NULL));
+                   ^
+..\src\hh.cpp:18:25: error: 'reserva' was not declared in this scope
+  ptr = (int *) reserva(5);
+                         ^
+..\src\hh.cpp:15:20: warning: unused variable 'sum' [-Wunused-variable]
+  int **ptr = NULL, sum=0, c, d;
+                    ^
+..\src\hh.cpp:15:30: warning: unused variable 'd' [-Wunused-variable]
+  int **ptr = NULL, sum=0, c, d;
+                              ^
+..\src\hh.cpp: In function 'int* reserva(int)':
+..\src\hh.cpp:32:49: error: 'malloc' was not declared in this scope
+     ptrAux = (int *)malloc(elementos*sizeof(int));
+                                                 ^
+
+12:26:32 Build Finished (took 177ms)
+

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;c_delta_programming/ex1_app/ex1_app&apos; to &apos;ex1_app.c&apos;" description="Rename resource &apos;ex1_app&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="ex1_app/ex1_app" name="ex1_app.c" stamp="1464753312102" updateReferences="true"/>
+</session>

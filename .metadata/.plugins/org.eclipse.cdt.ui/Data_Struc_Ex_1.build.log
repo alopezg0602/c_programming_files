@@ -1,0 +1,15 @@
+14:50:16 **** Incremental Build of configuration Release for project Data_Struc_Ex_1 ****
+make all 
+Building file: ../src/Data_Struc_Ex_1.c
+Invoking: Cross GCC Compiler
+gcc -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Data_Struc_Ex_1.d" -MT"src/Data_Struc_Ex_1.d" -o "src/Data_Struc_Ex_1.o" "../src/Data_Struc_Ex_1.c"
+Finished building: ../src/Data_Struc_Ex_1.c
+ 
+Building target: Data_Struc_Ex_1
+Invoking: Cross GCC Linker
+gcc  -o "Data_Struc_Ex_1"  ./src/Data_Struc_Ex_1.o   
+Finished building target: Data_Struc_Ex_1
+ 
+
+14:50:17 Build Finished (took 891ms)
+

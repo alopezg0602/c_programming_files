@@ -1,0 +1,20 @@
+18:15:26 **** Build of configuration Debug for project HolaAdios ****
+make all 
+Building file: ../src/HolaAdios.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/HolaAdios.d" -MT"src/HolaAdios.o" -o "src/HolaAdios.o" "../src/HolaAdios.cpp"
+In file included from /usr/include/wchar.h:6:0,
+                 from /usr/lib/gcc/x86_64-pc-cygwin/5.2.0/include/c++/cwchar:44,
+                 from /usr/lib/gcc/x86_64-pc-cygwin/5.2.0/include/c++/bits/postypes.h:40,
+                 from /usr/lib/gcc/x86_64-pc-cygwin/5.2.0/include/c++/iosfwd:40,
+                 from /usr/lib/gcc/x86_64-pc-cygwin/5.2.0/include/c++/ios:38,
+                 from /usr/lib/gcc/x86_64-pc-cygwin/5.2.0/include/c++/ostream:38,
+                 from /usr/lib/gcc/x86_64-pc-cygwin/5.2.0/include/c++/iostream:39,
+                 from ../src/HolaAdios.cpp:9:
+/usr/include/sys/reent.h:14:20: fatal error: stddef.h: No such file or directory
+compilation terminated.
+make: *** [src/HolaAdios.o] Error 1
+src/subdir.mk:18: recipe for target 'src/HolaAdios.o' failed
+
+18:15:27 Build Finished (took 863ms)
+

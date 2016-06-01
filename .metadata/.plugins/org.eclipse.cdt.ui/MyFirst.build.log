@@ -1,0 +1,8 @@
+
+**** Build of configuration Debug for project MyFirst ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -osrc\MyFirst.o ..\src\MyFirst.cpp
+Internal Builder: Cannot run program "g++" (in directory "C:\Users\Aldini\workspace\MyFirst\Debug"): CreateProcess error=2, El sistema no puede encontrar el archivo especificado
+Build error occurred, build is stopped
+Time consumed: 23  ms.  
