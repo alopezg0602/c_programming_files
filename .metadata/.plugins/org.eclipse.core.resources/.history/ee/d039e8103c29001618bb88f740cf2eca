@@ -214,7 +214,7 @@ void exerciseCode_3(void)
 	printf("%s\n",__FUNCTION__);
 	int *ptr_to_vector=NULL;
 	ptr_to_vector = readData(3);
-	ordDescending(ptr_to_vector,3);
+	ordDescending(&ptr_to_vector,3);
 	printf("El elemento mas grande es: %d", *ptr_to_vector);
 	free(ptr_to_vector);
 }

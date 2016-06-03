@@ -14,7 +14,6 @@
 
 
 void ordAscending(int *ptr_vector, int n);
-void ordDescending(int *ptr_vector, int n);
 void displayArray(int *ptr_to_array,int i);
 int* readData(int elements);
 int *reserva(int elementos);
@@ -105,38 +104,6 @@ void ordAscending(int *ptr_vector, int n)
 	}
 }
 
-void ordDescending(int *ptr_vector, int n)
-{
-	int interruptor = 1;
-	int *ptr_store=ptr_vector;
-	int *ptr_aux=ptr_vector;
-	ptr_aux++;
-	int mem=0;
-
-	int pasada, j;
-	/*ordering cycle*/
-	for(pasada = 0; ((pasada < n-1) && interruptor); pasada++)
-	{
-		interruptor = 0;
-		for (j=0; j<n-pasada -1;j++)
-		{
-			if(*ptr_vector < *(ptr_aux))
-			{
-				//change if are not in the required sequence
-				interruptor = 1;
-				mem=*ptr_vector;
-				*ptr_vector = *ptr_aux;
-				*ptr_aux=mem;
-			}
-			ptr_vector++;
-		    ptr_aux++;
-		}
-		ptr_vector=ptr_store;
-		ptr_aux=ptr_vector;
-		ptr_aux++;
-	}
-}
-
 void displayArray(int *ptr_to_array,int i)
 {
 	for(i=0;i<5;i++)
@@ -154,7 +121,7 @@ void exerciseCode_0(void)
 	int a[5]={20,40,50,30,80};
 	printf("Arreglo Inicial 2 \n");
 	displayArray(&a[0],i);
-	ordDescending(&a[0],i);
+	ordAscending(&a[0],i);
 	printf("\n Arreglo Final 2 \n");
 	displayArray(&a[0],i);
 }
@@ -212,11 +179,6 @@ void exerciseCode_2(void)
 void exerciseCode_3(void)
 {
 	printf("%s\n",__FUNCTION__);
-	int *ptr_to_vector=NULL;
-	ptr_to_vector = readData(3);
-	ordDescending(ptr_to_vector,3);
-	printf("El elemento mas grande es: %d", *ptr_to_vector);
-	free(ptr_to_vector);
 }
 
 void exerciseCode_4(void)
@@ -235,11 +197,6 @@ void exerciseCode_6(void)
 }
 
 void exerciseCode_7(void)
-{
-	printf("%s\n",__FUNCTION__);
-}
-
-void exerciseCode_8(void)
 {
 	printf("%s\n",__FUNCTION__);
 }

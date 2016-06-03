@@ -154,7 +154,7 @@ void exerciseCode_0(void)
 	int a[5]={20,40,50,30,80};
 	printf("Arreglo Inicial 2 \n");
 	displayArray(&a[0],i);
-	ordDescending(&a[0],i);
+	ordAscending(&a[0],i);
 	printf("\n Arreglo Final 2 \n");
 	displayArray(&a[0],i);
 }
@@ -212,11 +212,6 @@ void exerciseCode_2(void)
 void exerciseCode_3(void)
 {
 	printf("%s\n",__FUNCTION__);
-	int *ptr_to_vector=NULL;
-	ptr_to_vector = readData(3);
-	ordDescending(ptr_to_vector,3);
-	printf("El elemento mas grande es: %d", *ptr_to_vector);
-	free(ptr_to_vector);
 }
 
 void exerciseCode_4(void)
