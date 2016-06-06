@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+typedef	struct registro{
+		char *nombre_libro;
+		char *autor;
+		int codigo;
+		int *estante;
+	}atributos;
+
+typedef	struct estantes{
+		char nombre_estante;
+		int cantidad_libros;
+		atributos *Libros;
+	}estantes_t;
+
+int main (void)
+{
+	estantes_t orden_estante[3];
+	/*Datos para el Estante A*/
+	orden_estante[0].nombre_estante='A';
+	orden_estante[0].cantidad_libros=0;
+	orden_estante[0].Libros=NULL;
+
+
+
+
+	printf("Hello World");
+	return 0;
+}

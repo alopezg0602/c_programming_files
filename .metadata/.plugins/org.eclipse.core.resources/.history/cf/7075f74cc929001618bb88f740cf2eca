@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main (void)
+{
+	struct registro{
+		char *nombre_libro;
+		char *autor;
+		int codigo;
+		int *estante;
+	};
+
+	struct estantes{
+		char nombre_estante;
+		int cantidad_libros;
+	};
+
+	printf("Hello World");
+	return 0;
+}

@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef	struct registro{
+		char *nombre_libro;
+		char *autor;
+		int codigo;
+		int *estante;
+	}registro_t;
+
+typedef	struct estantes{
+		char nombre_estante;
+		int cantidad_libros;
+		registro_t *Libros;
+	}estantes_t;
+
+int main (void)
+{
+	estantes_t orden_estante[3];
+	/*Datos para el Estante A*/
+	orden_estante[0].nombre_estante='A';
+	orden_estante[0].cantidad_libros=0;
+	orden_estante[0].Libros=NULL;
+
+	orden_estante[0].Libros = (registro_t *) malloc (sizeof(registro_t));
+	orden_estante[0].Libros->nombre_libro = *("BALDOR");
+
+	printf("Hello World");
+	return 0;
+}

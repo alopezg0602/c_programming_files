@@ -11,20 +11,45 @@
 #include <stdio.h>
 #include<conio.h>
 #include <stdlib.h>
+#include <windows.h>
+#include <time.h>
 
 
 void ordAscending(int *ptr_vector, int n);
 void ordDescending(int *ptr_vector, int n);
 void displayArray(int *ptr_to_array,int i);
+void arregloAleatorio(int* a,int elementos);
 int* readData(int elements);
 int *reserva(int elementos);
+int factorial(int n);
+void gotoxy(int x,int y);
 
 #define EXERCISE_LIST\
 	  /**********(Exercise Description)****/       \
-	DISPLAY_LIST("0: Compare two numbers \n")\
-	DISPLAY_LIST("1: Even or Odd \n")\
-	DISPLAY_LIST("2: Compare three numbers \n" )\
-	DISPLAY_LIST("4: To exit \n" )\
+	DISPLAY_LIST("Ejercicio 1 \n")\
+	DISPLAY_LIST("Ejercicio 2 \n")\
+	DISPLAY_LIST("Ejercicio 3 \n" )\
+	DISPLAY_LIST("Ejercicio 4 \n" )\
+	DISPLAY_LIST("Ejercicio 5  \n" )\
+	DISPLAY_LIST("Ejercicio 6 \n" )\
+	DISPLAY_LIST("Ejercicio 7 \n" )\
+	DISPLAY_LIST("Ejercicio 8 \n" )\
+	DISPLAY_LIST("Ejercicio 9 \n" )\
+	DISPLAY_LIST("Ejercicio 10 \n" )\
+	DISPLAY_LIST("Ejercicio 11 \n" )\
+	DISPLAY_LIST("Ejercicio 12 \n" )\
+	DISPLAY_LIST("Ejercicio 13 \n" )\
+	DISPLAY_LIST("Ejercicio 14 \n" )\
+	DISPLAY_LIST("Ejercicio 15 \n" )\
+	DISPLAY_LIST("Ejercicio 16 \n" )\
+	DISPLAY_LIST("Ejercicio 17 \n" )\
+	DISPLAY_LIST("Ejercicio 18 \n" )\
+	DISPLAY_LIST("Ejercicio 19 \n" )\
+	DISPLAY_LIST("Ejercicio 20 \n" )\
+	DISPLAY_LIST("Ejercicio 21 \n" )\
+	DISPLAY_LIST("Ejercicio 22 \n" )\
+	DISPLAY_LIST("Ejercicio 23 \n" )\
+	DISPLAY_LIST("To exit \n" )\
 
 #define FUNCTION_LIST\
 	  /*********(ID , Function)*/\
@@ -37,6 +62,21 @@ int *reserva(int elementos);
 	FUNCTION_MEM(6,exerciseCode_6)\
 	FUNCTION_MEM(7,exerciseCode_7)\
 	FUNCTION_MEM(8,exerciseCode_8)\
+	FUNCTION_MEM(9,exerciseCode_9)\
+	FUNCTION_MEM(10,exerciseCode_10)\
+	FUNCTION_MEM(11,exerciseCode_11)\
+	FUNCTION_MEM(12,exerciseCode_12)\
+	FUNCTION_MEM(13,exerciseCode_13)\
+	FUNCTION_MEM(14,exerciseCode_14)\
+	FUNCTION_MEM(15,exerciseCode_15)\
+	FUNCTION_MEM(16,exerciseCode_16)\
+	FUNCTION_MEM(17,exerciseCode_17)\
+	FUNCTION_MEM(18,exerciseCode_18)\
+	FUNCTION_MEM(19,exerciseCode_19)\
+	FUNCTION_MEM(20,exerciseCode_20)\
+	FUNCTION_MEM(21,exerciseCode_21)\
+	FUNCTION_MEM(22,exerciseCode_22)\
+	FUNCTION_MEM(23,exerciseCode_23)\
 
 #define DISPLAY_LIST(label) \
 		printf(label);\
@@ -222,11 +262,66 @@ void exerciseCode_3(void)
 void exerciseCode_4(void)
 {
 	printf("%s\n",__FUNCTION__);
+	int i=0,n=0,aprobados=0,suspensos=0,dieces=0,ceros=0;
+	int *notas=NULL;
+	printf("\n Digite el numero de alumnos registrados: ");
+	scanf("%d",&n);
+	notas=reserva(n);
+	do{
+		printf("\n Introduzca la nota[%d]: ",i);
+		scanf("%d",notas);
+		/*Acumulador de aprobados o reprobados*/
+		if((*notas) >= 5)
+		{
+			aprobados++;
+		}
+		else
+		{
+			suspensos++;
+		}
+
+		if((*notas) == 10)
+		{
+			dieces++;
+		}
+
+		if((*notas) == 0)
+		{
+			ceros++;
+		}
+		i++;
+		notas++;
+	}while(i<n);
+
+	printf("\nEl porcentaje de aprobados es: %f ",((float)aprobados/n)*100);
+	printf("\nEl porcentaje de suspensos es: %f ",((float)suspensos/n)*100);
 }
 
 void exerciseCode_5(void)
 {
 	printf("%s\n",__FUNCTION__);
+	int k=0,elements=0,residual=0, acumulador[2]={0,0};
+	int *ptr_to_vector=NULL;
+	printf("%s\n",__FUNCTION__);
+	printf("Digita el numero de elementos a leer: ");
+	scanf("%d",&elements);
+	ptr_to_vector = readData(elements);
+
+	for(k=0;k<elements;k++)
+	{
+		residual=(*ptr_to_vector)%2;
+		if(residual==0)
+		{
+			acumulador[0]=acumulador[0]+*ptr_to_vector;
+		}
+		else
+		{
+		acumulador[1]++;
+		}
+		ptr_to_vector++;
+	}
+	printf("La suma de los pares es: %d y hay en total %d numeros impares",acumulador[0],acumulador[1]);
+	free(ptr_to_vector);
 }
 
 void exerciseCode_6(void)
@@ -237,9 +332,249 @@ void exerciseCode_6(void)
 void exerciseCode_7(void)
 {
 	printf("%s\n",__FUNCTION__);
+
+	/*LOCAL VARIABLES*/
+	int* ptr_local=NULL;
+	printf("Introduzca la medición de cada uno de los lados del triangulo \n");
+	ptr_local = readData(3);
+	/*Verificación de datos*/
+	if(ptr_local[0] <= 0 || ptr_local[1] <= 0 || ptr_local[2] <= 0)
+	{
+		printf("Los datos introducidos son incorrectos");
+	}
+
+	/*Condicional para determinar el tipo de tringulo*/
+	if((ptr_local[0]*ptr_local[1]*ptr_local[2])== (3*ptr_local[0]))
+	{
+		/*Triangulo Equilatero*/
+		printf("\n Triangulo Equilatero");
+	}
+
+	else
+	{
+		if((ptr_local[0]==ptr_local[1]) || (ptr_local[0]==ptr_local[2]) || (ptr_local[3]==ptr_local[2]) || (ptr_local[3]==ptr_local[1]))
+		{
+			/*Triangulo Isoceles*/
+			printf("\n Triangulo Isoceles");
+		}
+
+		else
+		{
+			/*Triangulo Escaleno*/
+			printf("\n Triangulo Escaleno");
+		}
+	}
 }
 
 void exerciseCode_8(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int *ptr_random;
+	int i=0;
+	int arreglo[125];
+
+	ptr_random = reserva(125);
+	arregloAleatorio(ptr_random,125);
+	for ( i=0; i<125;i++)
+	{
+		arreglo[i]=ptr_random[i];
+		printf("%d ",arreglo[i]);
+	}
+	free(ptr_random);
+}
+
+void exerciseCode_9(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int i= 0;
+	printf("Los multiplos de 3 entre el numero 1 y 3000 son: \n");
+	for(i=1;i<=3000;i++)
+	{
+		if(i%3==0)
+		{
+			printf("%d ",i);
+		}
+		else
+		{
+			/*No es multiplo de 3*/
+		}
+	}
+}
+
+void exerciseCode_10(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int elementos=0, i=0, acumulador=0;
+	int *ptr_serie=NULL;
+	printf("\nDigite el numero de datos a introducir: ");
+	scanf("%d",&elementos);
+	ptr_serie= reserva(elementos);
+	ptr_serie= readData(elementos);
+
+	for(i=0; i<elementos; i++)
+	{
+		acumulador = acumulador + *ptr_serie;
+		ptr_serie++;
+	}
+	printf("\n La media aritmetica es: %f", (float)acumulador/elementos);
+	free(ptr_serie);
+}
+
+void exerciseCode_11(void)
+{
+	printf("%s\n",__FUNCTION__);
+}
+
+void exerciseCode_12(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int entero=0,resultado=0;
+	printf("\nDigite el numero entero que se requiere calcular su factorial: ");
+	scanf("%d",&entero);
+	resultado=factorial(entero);
+	printf(" %d! es igual a %d",entero,resultado);
+}
+
+void exerciseCode_13(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int elementos=0;
+	int *ptr_serie=NULL;
+	printf("\nDigite el numero de datos a introducir: ");
+	scanf("%d",&elementos);
+	ptr_serie = reserva(elementos);
+	ptr_serie = readData(elementos);
+	ordDescending(ptr_serie,elementos);
+	printf("\n El numero mayor de los elementos es %d",ptr_serie[0]);
+	free(ptr_serie);
+}
+
+void exerciseCode_14(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int i=0, j=0,elementos=0;
+	printf("\nIntroduce las dimensiones del cuadrado: ");
+	scanf("%d", &elementos);
+	for (i=1; i<=elementos;i++)
+	{
+		for(j=1;j<=elementos;j++)
+		{
+			if(i==1 || i==elementos)
+			{
+				gotoxy(10+j,30+i);
+				printf("*");
+			}
+			else
+			{
+				if(j==1 || j==elementos)
+				{
+					gotoxy(10+j,30+i);
+					printf("*");
+				}
+				else
+				{
+					gotoxy(10+j,30+i);
+					printf(" ");
+				}
+			}
+		}
+	}
+}
+
+void exerciseCode_15(void)
+{
+	printf("%s\n",__FUNCTION__);
+	unsigned int cantidad=0, contador=0;
+	float precio=0;
+	float acumulador = 0;
+	do{
+		printf("\nIntroduzca la cantidad vendida del objeto [%d]: ",contador+1);
+		scanf("%d",&cantidad);
+		if(cantidad == 0)
+		{
+			break;
+		}
+		printf("\nIntroduzca el precio del objeto [%d]: ",contador+1);
+		scanf("%f",&precio);
+		acumulador = acumulador +(cantidad*precio);
+		contador++;
+	}while(1);
+	printf("\n El total a pagar es  = %f",acumulador);
+}
+
+void exerciseCode_16(void)
+{
+	printf("%s\n",__FUNCTION__);
+	unsigned int no_horas=0;
+	unsigned int salario=0;
+	char interruptor=1;
+	char yes_no = 0;
+	const unsigned int hora_normal=15;
+	const unsigned int hora_extra=22;
+	do
+	{
+		printf("\nIntroduzca el numero de horas completadas en la semana: ");
+		scanf("%d", &no_horas);
+		if(no_horas>35)
+		{
+			salario = 35*hora_normal+(no_horas-35)* hora_extra;
+		}
+		else
+		{
+			salario = no_horas*hora_normal;
+		}
+		printf("\nSalario = %d",salario);
+		do
+		{
+			if (yes_no=='Y')
+			{
+				interruptor = 1;
+				yes_no=0;
+				break;
+			}
+			else if(yes_no == 'N')
+			{
+				interruptor=0;
+				yes_no=0;
+				break;
+			}
+			printf("\nDesea calcular otro salario? (Y/N)");
+			yes_no=getchar();
+		}while(1);
+	}while(interruptor);
+}
+
+void exerciseCode_17(void)
+{
+	printf("%s\n",__FUNCTION__);
+}
+
+void exerciseCode_18(void)
+{
+	printf("%s\n",__FUNCTION__);
+}
+
+void exerciseCode_19(void)
+{
+	printf("%s\n",__FUNCTION__);
+}
+
+void exerciseCode_20(void)
+{
+	printf("%s\n",__FUNCTION__);
+}
+
+void exerciseCode_21(void)
+{
+	printf("%s\n",__FUNCTION__);
+}
+
+void exerciseCode_22(void)
+{
+	printf("%s\n",__FUNCTION__);
+}
+
+void exerciseCode_23(void)
 {
 	printf("%s\n",__FUNCTION__);
 }
@@ -269,3 +604,34 @@ int *reserva(int elementos)
     ptrAux = (int *)malloc(elementos*sizeof(int));
     return ptrAux;
 }
+
+void gotoxy(int x,int y){
+      HANDLE hcon;
+      hcon = GetStdHandle(STD_OUTPUT_HANDLE);
+      COORD dwPos;
+      dwPos.X = x;
+      dwPos.Y= y;
+      SetConsoleCursorPosition(hcon,dwPos);
+ }
+
+void arregloAleatorio(int* a,int elementos)
+{
+	int i=0;
+	srand (time(NULL));
+
+	for(i =0; i<elementos ;i++)
+	{
+		*a=rand() % 10;
+		a++;
+	}
+}
+
+int factorial(int n)
+{
+	if (n==1)
+	{
+		return 1;
+	}
+	return (n*factorial(n-1 )) ;
+}
+
