@@ -23,6 +23,8 @@ int* readData(int elements);
 int *reserva(int elementos);
 int factorial(int n);
 void gotoxy(int x,int y);
+void clearinputBuffer(void);
+void is_primo(int *ptr);
 
 #define EXERCISE_LIST\
 	  /**********(Exercise Description)****/       \
@@ -49,6 +51,10 @@ void gotoxy(int x,int y);
 	DISPLAY_LIST("Ejercicio 21 \n" )\
 	DISPLAY_LIST("Ejercicio 22 \n" )\
 	DISPLAY_LIST("Ejercicio 23 \n" )\
+	DISPLAY_LIST("Ejercicio 24 \n" )\
+	DISPLAY_LIST("Ejercicio 25 \n" )\
+	DISPLAY_LIST("Ejercicio 26 \n" )\
+	DISPLAY_LIST("Ejercicio 27 \n" )\
 	DISPLAY_LIST("To exit \n" )\
 
 #define FUNCTION_LIST\
@@ -77,6 +83,10 @@ void gotoxy(int x,int y);
 	FUNCTION_MEM(21,exerciseCode_21)\
 	FUNCTION_MEM(22,exerciseCode_22)\
 	FUNCTION_MEM(23,exerciseCode_23)\
+	FUNCTION_MEM(24,exerciseCode_24)\
+	FUNCTION_MEM(25,exerciseCode_25)\
+	FUNCTION_MEM(26,exerciseCode_26)\
+	FUNCTION_MEM(27,exerciseCode_27)\
 
 #define DISPLAY_LIST(label) \
 		printf(label);\
@@ -508,7 +518,7 @@ void exerciseCode_16(void)
 	unsigned int no_horas=0;
 	unsigned int salario=0;
 	char interruptor=1;
-	char yes_no = 0;
+	char yes_no = 'D';
 	const unsigned int hora_normal=15;
 	const unsigned int hora_extra=22;
 	do
@@ -523,10 +533,13 @@ void exerciseCode_16(void)
 		{
 			salario = no_horas*hora_normal;
 		}
-		printf("\nSalario = %d",salario);
-		do
+		printf("\nSalario = %d pesos",salario);
+		clearinputBuffer();
+		for(;;)
 		{
-			if (yes_no=='Y')
+			printf("\nDesea calcular otro salario? (Y/N)");
+			scanf("%c",&yes_no);
+			if (yes_no == 'Y')
 			{
 				interruptor = 1;
 				yes_no=0;
@@ -538,15 +551,24 @@ void exerciseCode_16(void)
 				yes_no=0;
 				break;
 			}
-			printf("\nDesea calcular otro salario? (Y/N)");
-			yes_no=getchar();
-		}while(1);
+		}
 	}while(interruptor);
 }
 
 void exerciseCode_17(void)
 {
 	printf("%s\n",__FUNCTION__);
+	int numero=0;
+	clearinputBuffer();
+	for(;;)
+	{
+		printf("Introduzca el numero entero= ");
+		scanf("%d",&numero);
+		if(numero==0)
+		{
+			break;
+		}
+	}
 }
 
 void exerciseCode_18(void)
@@ -577,6 +599,93 @@ void exerciseCode_22(void)
 void exerciseCode_23(void)
 {
 	printf("%s\n",__FUNCTION__);
+}
+
+void exerciseCode_24(void)
+{
+	printf("%s\n",__FUNCTION__);
+}
+
+void exerciseCode_25(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int *numero;
+	numero=reserva(1);
+	printf("Introduzca un numero entero: ");
+	scanf("%d",numero);
+	is_primo(numero);
+
+	if(*numero)
+	{
+		printf("\n El numero es primo");
+	}
+	else
+	{
+		printf("\n El numero NO es primo");
+	}
+	free(numero);
+}
+
+void exerciseCode_26(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int *ptr_arreglo=NULL;
+	const int total=10;
+	ptr_arreglo=reserva(total);
+	ptr_arreglo=readData(total);
+	ordAscending(ptr_arreglo,total);
+	printf("\nEl numero mayor es %d y el menos es %d",ptr_arreglo[0],ptr_arreglo[total-1]);
+}
+
+void exerciseCode_27(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int *ptr_numeros=NULL;
+	unsigned int elementos =0;
+	unsigned int i=0,k=0,total=0;
+	unsigned a=0;
+	int vector[10];
+	printf("\nIntroduce el numero de elementos: ");
+	scanf("%d",&elementos);
+	ptr_numeros=reserva(elementos);
+	ptr_numeros=readData(elementos);
+	while(k<elementos)
+	{
+		for(i=1;i<=ptr_numeros[k];i++)
+		{
+			if((ptr_numeros[k]%i)==0)
+			{
+				a++;
+			}
+			else
+			{
+				/*Do nothing*/
+			}
+		}
+
+		if(a==2)
+
+		{
+			vector[k]=1;
+			total++;
+		}
+		else
+		{
+			vector[k]=0;
+		}
+		a=0;
+		k++;
+	}
+	/*impresion de datos*/
+	printf("\nEl total de numeros primos encontrados es de %d y son: ",total);
+	for(i=0; i<elementos;i++)
+	{
+		if(vector[i]==1)
+		{
+			printf("%d ",ptr_numeros[i]);
+		}
+	}
+	free(ptr_numeros);
 }
 
 int* readData(int elements)
@@ -635,3 +744,38 @@ int factorial(int n)
 	return (n*factorial(n-1 )) ;
 }
 
+void clearinputBuffer(void)
+{
+	char c;
+	do
+	{
+		c=getchar();
+	}while(c!='\n' && c!= EOF);
+}
+
+void is_primo(int *ptr)
+{
+	int i=0,a=0;
+
+	for(i=1;i<=*ptr;i++)
+	{
+		if((*ptr%i)==0)
+		{
+			a++;
+		}
+		else
+		{
+			/*Do nothing*/
+		}
+	}
+
+	if(a==2)
+
+	{
+		*ptr=1;
+	}
+	else
+	{
+		*ptr=0;
+	}
+}
