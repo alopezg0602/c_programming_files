@@ -22,9 +22,13 @@ void arregloAleatorio(int* a,int elementos);
 int* readData(int elements);
 int *reserva(int elementos);
 int factorial(int n);
+int sumatoria(int n);
 void gotoxy(int x,int y);
 void clearinputBuffer(void);
 void is_primo(int *ptr);
+void leerMatriz(int m, int n, int **ptr);
+void imprimirMatriz(int m, int n, int **ptr);
+void recoverMemory(int m, int n, int **ptr);
 
 #define EXERCISE_LIST\
 	  /**********(Exercise Description)****/       \
@@ -574,21 +578,68 @@ void exerciseCode_17(void)
 void exerciseCode_18(void)
 {
 	printf("%s\n",__FUNCTION__);
+	printf("\nOperaciones Matriciales");
+	int **ptr = NULL;
+	int n=3, m=3,contador;
+
+	ptr = (int **) malloc(m*sizeof(int *));
+
+	for( contador=0; contador<n; contador++)
+	{
+		ptr[contador] = (int *) reserva(n);
+	}
+    /*Leer Matriz*/
+	leerMatriz(2,2,ptr);
+	/*Desplegar en pantalla*/
+	imprimirMatriz(2,2,ptr);
 }
 
 void exerciseCode_19(void)
 {
 	printf("%s\n",__FUNCTION__);
+	unsigned int i;
+	printf("\nRangos de colores: ");
+	printf("\nColor 1: 0 a %f",(float)255/16);
+	for(i=1;i<=15;i++)
+	{
+	printf("\nColor %d: %f a %f",i+1,i*((float)255/16),(i+1)*((float)255/16));
+	}
 }
 
 void exerciseCode_20(void)
 {
 	printf("%s\n",__FUNCTION__);
+	printf("Impresion en dos colmnas");
+	unsigned int n=100;
+	unsigned int r=0;
+	for(n=101;n>0;n--)
+	{
+		printf("%d",n);
+		printf("\t %d",r);
+		printf("\n");
+		r++;
+	}
 }
 
 void exerciseCode_21(void)
 {
 	printf("%s\n",__FUNCTION__);
+	unsigned int numero=0,n=1;
+	printf("Introduzca un numero entero positivo: ");
+	scanf("%d",&numero);
+	for(n=1;n<=numero;n++)
+	{
+		printf("%d",n);
+		if(n*2<=numero)
+		{
+			printf("\t %d",n*2);
+		}
+		if(n*3<=numero)
+		{
+			printf("\t %d",n*3);
+		}
+		printf("\n");
+	}
 }
 
 void exerciseCode_22(void)
@@ -599,6 +650,49 @@ void exerciseCode_22(void)
 void exerciseCode_23(void)
 {
 	printf("%s\n",__FUNCTION__);
+	unsigned int selector;
+	int numero,resultado;
+	char interruptor=1;
+	while(interruptor==1)
+	{
+		printf("\n Menu Principal");
+		printf("\n 1 Salir");
+		printf("\n 2 Sumatorio");
+		printf("\n 3 Factorial");
+		printf("\n Digite su seleccion: ");
+		scanf("%d",&selector);
+		switch(selector)
+		{
+		case 1:
+		{
+			/*Salir*/
+			interruptor=0;
+			break;
+		}
+
+		case 2:
+		{
+			printf("\nIntroduzca un numero: ");
+			scanf("%d",&numero);
+			resultado= sumatoria(numero);
+			printf("\nResultado: %d",resultado);
+			break;
+		}
+		case 3:
+		{
+			printf("\nIntroduzca un numero: ");
+			scanf("%d",&numero);
+			resultado= factorial(numero);
+			printf("\nResultado: %d",resultado);
+			break;
+		}
+		default:
+		{
+			/*Do nothing*/
+			break;
+		}
+		}
+	}
 }
 
 void exerciseCode_24(void)
@@ -744,6 +838,15 @@ int factorial(int n)
 	return (n*factorial(n-1 )) ;
 }
 
+int sumatoria(int n)
+{
+	if (n==1)
+	{
+		return 1;
+	}
+	return (n+sumatoria(n-1)) ;
+}
+
 void clearinputBuffer(void)
 {
 	char c;
@@ -778,4 +881,60 @@ void is_primo(int *ptr)
 	{
 		*ptr=0;
 	}
+}
+
+void leerMatriz(int m, int n, int **ptr)
+{
+	unsigned i=0,j=0,numero;
+
+	for(i=0;i<m;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			printf("\nIntroduce el elemento [%d][%d] = ",j+1,i+1);
+			scanf("%d",&numero);
+			**ptr= numero;
+			(*ptr)++;
+		}
+		ptr++;
+	}
+
+/*	ptr--;
+	for(i=0;i<m;i++)
+	{
+		(*ptr)--;
+		for(j=0;j<n;j++)
+		{
+			//printf("\t%d",**ptr);
+			(*ptr)--;
+		}
+		//printf("\n");
+		ptr--;
+	}
+	ptr++;
+	(ptr[0])++;
+	printf("\n");
+	printf("%d",**ptr);
+	printf("\n");
+	printf("%d",(ptr[0])[0]);*/
+
+}
+
+void imprimirMatriz(int m, int n, int **ptr)
+{
+	unsigned i=0,j=0;
+
+	for(i=0;i<m;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			printf("\t%d",(ptr[j])[i]);
+		}
+		printf("\n");
+	}
+}
+
+void recoverMemory(int m, int n, int **ptr)
+{
+
 }

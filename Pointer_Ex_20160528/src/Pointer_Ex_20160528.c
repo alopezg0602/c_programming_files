@@ -66,6 +66,7 @@ int main()
         ptr++;
     }
     free(ptr);
+    getch();
     return 0;
 }
 

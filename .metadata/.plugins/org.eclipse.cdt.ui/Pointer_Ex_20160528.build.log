@@ -1,11 +1,14 @@
-17:52:37 **** Rebuild of configuration Debug for project Pointer_Ex_20160528 ****
+23:33:00 **** Incremental Build of configuration Debug for project Pointer_Ex_20160528 ****
 Info: Internal Builder is used for build
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Pointer_Ex_20160528.o" "..\\src\\Pointer_Ex_20160528.c" 
 ..\src\Pointer_Ex_20160528.c: In function 'main':
 ..\src\Pointer_Ex_20160528.c:25:6: warning: assignment from incompatible pointer type [enabled by default]
   ptr = (int *) reserva(5);
       ^
+..\src\Pointer_Ex_20160528.c:69:5: warning: implicit declaration of function 'getch' [-Wimplicit-function-declaration]
+     getch();
+     ^
 gcc -o Pointer_Ex_20160528.exe "src\\Pointer_Ex_20160528.o" 
 
-17:52:38 Build Finished (took 840ms)
+23:33:01 Build Finished (took 580ms)
 
