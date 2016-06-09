@@ -1,0 +1,54 @@
+/*
+ ============================================================================
+ Name        : Exercises_second_set.c
+ Author      : Aldo
+ Version     :
+ Copyright   : Your copyright notice
+ Description :
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+
+#define FUNCTION_LIST\
+	  /*********(ID , Function , Description)*/\
+	FUNCTION_MEM(1,functionCode_1, "Ejercicio 1: Copiar string")\
+	FUNCTION_MEM(2,functionCode_2, "Ejercicio 2: Contar caracteres")\
+	FUNCTION_MEM(3,functionCode_3, "Ejercicio 3: Reservaciones")\
+	FUNCTION_MEM(4,functionCode_4, "Ejercicio 4: Longitud de string")\
+	FUNCTION_MEM(5,functionCode_5, "Ejercicio 5: Comparar strings")\
+	FUNCTION_MEM(6,functionCode_6, "Ejercicio 6: Biblioteca")\
+	FUNCTION_MEM(7,functionCode_7, "Ejercicio 7: Registro de alumnos")\
+	FUNCTION_MEM(8,functionCode_8, "Ejercicio 8: Arreglar codigo")\
+
+/*FUNCTION PROTOTYPES*/
+#define FUNCTION_MEM(id,function,description)\
+	void function(void); \
+
+FUNCTION_LIST
+
+int main(void) {
+	char selector=0;
+	printf("Seleccione el ejercicio a ejecutar: \n");
+	scanf("%c",&selector);
+	switch (selector)
+	{
+	case 1:
+	{
+		break;
+	}
+	case 2:
+	{
+		break;
+	}
+	default:
+	{
+		break;
+	}
+	getch();
+	return 0;
+}
+	return EXIT_SUCCESS;
+}

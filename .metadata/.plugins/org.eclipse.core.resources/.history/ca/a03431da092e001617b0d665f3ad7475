@@ -1,0 +1,131 @@
+/*
+ ============================================================================
+ Name        : Exercises_second_set.c
+ Author      : Aldo
+ Version     :
+ Copyright   : Your copyright notice
+ Description :
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+
+
+typedef void (*fptr)(void);
+
+typedef struct
+{
+	unsigned int id;
+	fptr my_function;
+}config;
+
+#define FUNCTION_LIST\
+	  /*********(Function , Description)*/\
+	FUNCTION_MEM(functionCode_1, "\n1.Ejercicio 1: Copiar string")\
+	FUNCTION_MEM(functionCode_2, "\n2.Ejercicio 2: Contar caracteres")\
+	FUNCTION_MEM(functionCode_3, "\n3.Ejercicio 3: Reservaciones")\
+	FUNCTION_MEM(functionCode_4, "\n4.Ejercicio 4: Longitud de string")\
+	FUNCTION_MEM(functionCode_5, "\n5.Ejercicio 5: Comparar strings")\
+	FUNCTION_MEM(functionCode_6, "\n6.Ejercicio 6: Biblioteca")\
+	FUNCTION_MEM(functionCode_7, "\n7.Ejercicio 7: Registro de alumnos")\
+	FUNCTION_MEM(functionCode_8, "\n8.Ejercicio 8: Arreglar codigo")\
+
+/*FUNCTION PROTOTYPES*/
+#define FUNCTION_MEM(function,description)\
+	void function(void); \
+
+FUNCTION_LIST
+
+void cpyarray(int *arr1, int *arr2, int lenght);
+
+#undef FUNCTION_MEM
+#define FUNCTION_MEM(function,description)\
+		printf(description);\
+
+int main(void) {
+	unsigned int selector=0;
+	char interruptor=1;
+
+	config myfunctions[8]=
+	{{1,&functionCode_1}
+	,{2,&functionCode_2}
+	,{3,&functionCode_3}
+	,{4,&functionCode_4}
+	,{5,&functionCode_5}
+	,{6,&functionCode_6}
+	,{7,&functionCode_7}
+	,{8,&functionCode_8}
+	};
+
+	FUNCTION_LIST
+	printf("\n9. Salir");
+while(interruptor)
+{
+	printf("\n\t Seleccione el ejercicio a ejecutar: ");
+	scanf("%d",&selector);
+
+	if(selector==9)
+	{
+		interruptor=0;
+		break;
+	}
+	else if (selector <7 && selector >0)
+	{
+	myfunctions[selector-1].my_function();
+	}
+	else
+	{
+		/*No case available with the input id*/
+		printf("\nOpcion no valida");
+	}
+}
+	getch();
+	return 0;
+}
+
+void functionCode_1(void)
+{
+	printf("%s",__FUNCTION__);
+}
+
+void functionCode_2(void)
+{
+	printf("%s",__FUNCTION__);
+}
+
+void functionCode_3(void)
+{
+	printf("%s",__FUNCTION__);
+}
+
+void functionCode_4(void)
+{
+	printf("%s",__FUNCTION__);
+}
+
+void functionCode_5(void)
+{
+	printf("%s",__FUNCTION__);
+}
+
+void functionCode_6(void)
+{
+	printf("%s",__FUNCTION__);
+}
+
+void functionCode_7(void)
+{
+	printf("%s",__FUNCTION__);
+}
+
+void functionCode_8(void)
+{
+	printf("%s",__FUNCTION__);
+}
+
+void cpyarray(int *arr1, int *arr2, int lenght)
+{
+
+}

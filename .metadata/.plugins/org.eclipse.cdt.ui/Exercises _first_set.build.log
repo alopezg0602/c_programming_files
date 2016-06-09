@@ -1,0 +1,7 @@
+23:38:02 **** Rebuild of configuration Debug for project Exercises _first_set ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Exercises_Collection_p1.o" "..\\src\\Exercises_Collection_p1.c" 
+gcc -o "Exercises _first_set.exe" "src\\Exercises_Collection_p1.o" 
+
+23:38:04 Build Finished (took 1s.471ms)
+

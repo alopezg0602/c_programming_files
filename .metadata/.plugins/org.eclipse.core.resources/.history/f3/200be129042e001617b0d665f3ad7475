@@ -1,0 +1,102 @@
+/*
+ ============================================================================
+ Name        : Exercises_second_set.c
+ Author      : Aldo
+ Version     :
+ Copyright   : Your copyright notice
+ Description :
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+
+
+typedef void (*fptr)(void);
+
+typedef struct
+{
+	unsigned int id;
+	fptr my_function;
+}config;
+
+#define FUNCTION_LIST\
+	  /*********(ID , Function , Description)*/\
+	FUNCTION_MEM(1,functionCode_1, "Ejercicio 1: Copiar string")\
+	FUNCTION_MEM(2,functionCode_2, "Ejercicio 2: Contar caracteres")\
+	FUNCTION_MEM(3,functionCode_3, "Ejercicio 3: Reservaciones")\
+	FUNCTION_MEM(4,functionCode_4, "Ejercicio 4: Longitud de string")\
+	FUNCTION_MEM(5,functionCode_5, "Ejercicio 5: Comparar strings")\
+	FUNCTION_MEM(6,functionCode_6, "Ejercicio 6: Biblioteca")\
+	FUNCTION_MEM(7,functionCode_7, "Ejercicio 7: Registro de alumnos")\
+	FUNCTION_MEM(8,functionCode_8, "Ejercicio 8: Arreglar codigo")\
+
+/*FUNCTION PROTOTYPES*/
+#define FUNCTION_MEM(id,function,description)\
+	void function(void); \
+
+FUNCTION_LIST
+
+int main(void) {
+	unsigned int selector=0;
+
+	config myfunctions[8]=
+	{{1,&functionCode_1}
+	,{2,&functionCode_2}
+	,{3,&functionCode_3}
+	,{4,&functionCode_4}
+	,{5,&functionCode_5}
+	,{6,&functionCode_6}
+	,{7,&functionCode_7}
+	,{8,&functionCode_8}
+	};
+
+	printf("Seleccione el ejercicio a ejecutar: \n");
+	scanf("%d",&selector);
+
+	myfunctions[0].my_function;
+
+	getch();
+	return 0;
+}
+
+void functionCode_1(void)
+{
+	printf("%s",__FUNCTION__);
+}
+
+void functionCode_2(void)
+{
+	printf("%s",__FUNCTION__);
+}
+
+void functionCode_3(void)
+{
+	printf("%s",__FUNCTION__);
+}
+
+void functionCode_4(void)
+{
+	printf("%s",__FUNCTION__);
+}
+
+void functionCode_5(void)
+{
+	printf("%s",__FUNCTION__);
+}
+
+void functionCode_6(void)
+{
+	printf("%s",__FUNCTION__);
+}
+
+void functionCode_7(void)
+{
+	printf("%s",__FUNCTION__);
+}
+
+void functionCode_8(void)
+{
+	printf("%s",__FUNCTION__);
+}

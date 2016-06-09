@@ -5266,3 +5266,33 @@ java.lang.NullPointerException
 !MESSAGE Help document /com.coverity.desktop.doc/static_checker_SLEEP.html cannot be opened.
 !SUBENTRY 1 org.eclipse.help.base 4 4 2016-06-08 23:18:08.477
 !MESSAGE Help document /com.coverity.desktop.doc/static_checker_OVERRUN.html cannot be opened.
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-06-08 23:35:12.870
+!MESSAGE Indexed 'Exercises_second_set' (1 sources, 8 headers) in 0.117 sec: 848 declarations; 1,531 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.ui 4 0 2016-06-08 23:35:19.585
+!MESSAGE Error in CDT UI during reconcile
+!STACK 1
+C Model Exception: C Model Status [Element Excersices_Collection.c does not exist.]
+	at org.eclipse.cdt.internal.core.model.CElement.newNotPresentException(CElement.java:484)
+	at org.eclipse.cdt.internal.core.model.TranslationUnit.makeConsistent(TranslationUnit.java:573)
+	at org.eclipse.cdt.internal.core.model.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:62)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.execute(CModelOperation.java:341)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.run(CModelOperation.java:607)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.runOperation(CModelOperation.java:635)
+	at org.eclipse.cdt.internal.core.model.WorkingCopy.reconcile(WorkingCopy.java:362)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:63)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:87)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:349)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+!SUBENTRY 1 org.eclipse.cdt.core 4 969 2016-06-08 23:35:19.615
+!MESSAGE Element Excersices_Collection.c does not exist.
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-06-08 23:35:36.522
+!MESSAGE Indexed 'Excersices_first_set' (0 sources, 0 headers) in 0.005 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-06-08 23:36:57.045
+!MESSAGE Indexed 'Exercises _first_set' (1 sources, 63 headers) in 2.63 sec: 30,237 declarations; 42,286 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)

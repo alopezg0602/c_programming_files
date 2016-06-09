@@ -1,4 +1,4 @@
-23:19:08 **** Rebuild of configuration Debug for project Excersices_Set ****
+01:18:56 **** Incremental Build of configuration Debug for project Exercises_second_set ****
 Info: Internal Builder is used for build
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Excersices_Collection.o" "..\\src\\Excersices_Collection.c" 
-gcc -o Excersices_Set.exe "src\\Excersices_Collection.o" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Exercises_Collection_p2.o" "..\\src\\Exercises_Collection_p2.c" 
+gcc -o Exercises_second_set.exe "src\\Exercises_Collection_p2.o" 

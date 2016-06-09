@@ -1,0 +1,37 @@
+/*
+ ============================================================================
+ Name        : Exercises_second_set.c
+ Author      : Aldo
+ Version     :
+ Copyright   : Your copyright notice
+ Description :
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+	char selector=0;
+	printf("Elija el ejercicio a ejecutar: \n");
+	printf("Porfavor digite su seleccion: ");
+	scanf("%c",&selector);
+	switch (selector)
+	{
+	case 1:
+	{
+
+	}
+	case 2:
+	{
+
+	}
+	default:
+	{
+
+	}
+	getch();
+	return 0;
+}
+	return EXIT_SUCCESS;
+}
