@@ -1,0 +1,999 @@
+/*
+ ============================================================================
+ Name        : Excersice_1.c
+ Author      : Aldo
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include<conio.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <time.h>
+
+
+void ordAscending(int *ptr_vector, int n);
+void ordDescending(int *ptr_vector, int n);
+void displayArray(int *ptr_to_array,int i);
+void arregloAleatorio(int* a,int elementos);
+int* readData(int elements);
+int *reserva(int elementos);
+int factorial(int n);
+int sumatoria(int n);
+void gotoxy(int x,int y);
+void clearinputBuffer(void);
+void is_primo(int *ptr);
+void leerMatriz(int m, int n, int **ptr);
+void imprimirMatriz(int m, int n, int **ptr);
+
+#define EXERCISE_LIST\
+	  /**********(Exercise Description)****/       \
+	DISPLAY_LIST("Ejercicio 1 \n")\
+	DISPLAY_LIST("Ejercicio 2 \n")\
+	DISPLAY_LIST("Ejercicio 3 \n" )\
+	DISPLAY_LIST("Ejercicio 4 \n" )\
+	DISPLAY_LIST("Ejercicio 5  \n" )\
+	DISPLAY_LIST("Ejercicio 6 \n" )\
+	DISPLAY_LIST("Ejercicio 7 \n" )\
+	DISPLAY_LIST("Ejercicio 8 \n" )\
+	DISPLAY_LIST("Ejercicio 9 \n" )\
+	DISPLAY_LIST("Ejercicio 10 \n" )\
+	DISPLAY_LIST("Ejercicio 11 \n" )\
+	DISPLAY_LIST("Ejercicio 12 \n" )\
+	DISPLAY_LIST("Ejercicio 13 \n" )\
+	DISPLAY_LIST("Ejercicio 14 \n" )\
+	DISPLAY_LIST("Ejercicio 15 \n" )\
+	DISPLAY_LIST("Ejercicio 16 \n" )\
+	DISPLAY_LIST("Ejercicio 17 \n" )\
+	DISPLAY_LIST("Ejercicio 18 \n" )\
+	DISPLAY_LIST("Ejercicio 19 \n" )\
+	DISPLAY_LIST("Ejercicio 20 \n" )\
+	DISPLAY_LIST("Ejercicio 21 \n" )\
+	DISPLAY_LIST("Ejercicio 22 \n" )\
+	DISPLAY_LIST("Ejercicio 23 \n" )\
+	DISPLAY_LIST("Ejercicio 24 \n" )\
+	DISPLAY_LIST("Ejercicio 25 \n" )\
+	DISPLAY_LIST("Ejercicio 26 \n" )\
+	DISPLAY_LIST("Ejercicio 27 \n" )\
+	DISPLAY_LIST("To exit \n" )\
+
+#define FUNCTION_LIST\
+	  /*********(ID , Function)*/\
+	FUNCTION_MEM(0,exerciseCode_0)\
+	FUNCTION_MEM(1,exerciseCode_1)\
+	FUNCTION_MEM(2,exerciseCode_2)\
+	FUNCTION_MEM(3,exerciseCode_3)\
+	FUNCTION_MEM(4,exerciseCode_4)\
+	FUNCTION_MEM(5,exerciseCode_5)\
+	FUNCTION_MEM(6,exerciseCode_6)\
+	FUNCTION_MEM(7,exerciseCode_7)\
+	FUNCTION_MEM(8,exerciseCode_8)\
+	FUNCTION_MEM(9,exerciseCode_9)\
+	FUNCTION_MEM(10,exerciseCode_10)\
+	FUNCTION_MEM(11,exerciseCode_11)\
+	FUNCTION_MEM(12,exerciseCode_12)\
+	FUNCTION_MEM(13,exerciseCode_13)\
+	FUNCTION_MEM(14,exerciseCode_14)\
+	FUNCTION_MEM(15,exerciseCode_15)\
+	FUNCTION_MEM(16,exerciseCode_16)\
+	FUNCTION_MEM(17,exerciseCode_17)\
+	FUNCTION_MEM(18,exerciseCode_18)\
+	FUNCTION_MEM(19,exerciseCode_19)\
+	FUNCTION_MEM(20,exerciseCode_20)\
+	FUNCTION_MEM(21,exerciseCode_21)\
+	FUNCTION_MEM(22,exerciseCode_22)\
+	FUNCTION_MEM(23,exerciseCode_23)\
+	FUNCTION_MEM(24,exerciseCode_24)\
+	FUNCTION_MEM(25,exerciseCode_25)\
+	FUNCTION_MEM(26,exerciseCode_26)\
+	FUNCTION_MEM(27,exerciseCode_27)\
+
+#define DISPLAY_LIST(label) \
+		printf(label);\
+
+/*FUNCTION PROTOTYPES*/
+#define FUNCTION_MEM(id,function)\
+	void function(void); \
+
+FUNCTION_LIST
+
+#undef  FUNCTION_MEM
+#define FUNCTION_MEM(id,function)\
+	case id:\
+	{ \
+		function(); \
+		break; \
+	} \
+
+int main(void) {
+	int selector=0;
+	printf("Choose one exercise from below list to execute: \n");
+	EXERCISE_LIST
+	printf("Enter your selection: ");
+	scanf("%d",&selector);
+	switch (selector)
+	{
+		FUNCTION_LIST
+
+	   default:
+	      /*End the program*/
+	      break;
+	}
+	getch();
+	return 0;
+}
+
+void ordAscending(int *ptr_vector, int n)
+{
+	int interruptor = 1;
+	int *ptr_store=ptr_vector;
+	int *ptr_aux=ptr_vector;
+	ptr_aux++;
+	int mem=0;
+
+	int pasada, j;
+	/*ordering cycle*/
+	for(pasada = 0; ((pasada < n-1) && interruptor); pasada++)
+	{
+		interruptor = 0;
+		for (j=0; j<n-pasada -1;j++)
+		{
+			if(*ptr_vector > *(ptr_aux))
+			{
+				//change if are not in the required sequence
+				interruptor = 1;
+				mem=*ptr_vector;
+				*ptr_vector = *ptr_aux;
+				*ptr_aux=mem;
+			}
+			ptr_vector++;
+		    ptr_aux++;
+		}
+		ptr_vector=ptr_store;
+		ptr_aux=ptr_vector;
+		ptr_aux++;
+	}
+}
+
+void ordDescending(int *ptr_vector, int n)
+{
+	int interruptor = 1;
+	int *ptr_store=ptr_vector;
+	int *ptr_aux=ptr_vector;
+	ptr_aux++;
+	int mem=0;
+
+	int pasada, j;
+	/*ordering cycle*/
+	for(pasada = 0; ((pasada < n-1) && interruptor); pasada++)
+	{
+		interruptor = 0;
+		for (j=0; j<n-pasada -1;j++)
+		{
+			if(*ptr_vector < *(ptr_aux))
+			{
+				//change if are not in the required sequence
+				interruptor = 1;
+				mem=*ptr_vector;
+				*ptr_vector = *ptr_aux;
+				*ptr_aux=mem;
+			}
+			ptr_vector++;
+		    ptr_aux++;
+		}
+		ptr_vector=ptr_store;
+		ptr_aux=ptr_vector;
+		ptr_aux++;
+	}
+}
+
+void displayArray(int *ptr_to_array,int i)
+{
+	for(i=0;i<5;i++)
+	{
+		printf("%d ", *ptr_to_array);
+		ptr_to_array++;
+	}
+	printf("\n");
+}
+
+void exerciseCode_0(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int i=5;
+	int a[5]={20,40,50,30,80};
+	printf("Arreglo Inicial 2 \n");
+	displayArray(&a[0],i);
+	ordDescending(&a[0],i);
+	printf("\n Arreglo Final 2 \n");
+	displayArray(&a[0],i);
+}
+
+void exerciseCode_1(void)
+{
+	/*LOCAL VARIABLES*/
+	int* ptr_local=NULL;
+	int var_temp=0;
+	ptr_local = readData(2);
+	var_temp=*(++ptr_local);
+	ptr_local--;
+	/*FUCNTION IMPLEMENTATION*/
+	printf("%s\n",__FUNCTION__);
+	if((*ptr_local) > var_temp)
+	{
+		printf("\nEl numero mayor es: %d",*ptr_local);
+	}
+	else if (*ptr_local < var_temp)
+	{
+		printf("\nEl numero mayor es: %d",var_temp);
+	}
+	else
+	{
+		printf("\n Los numeros son iguales");
+	}
+	free(ptr_local);
+}
+
+void exerciseCode_2(void)
+{
+	int k=0,elements=0,residual=0;
+	int *ptr_to_vector=NULL;
+	printf("%s\n",__FUNCTION__);
+	printf("Digita el numero de elementos a leer: ");
+	scanf("%d",&elements);
+	ptr_to_vector = readData(elements);
+
+	for(k=0;k<elements;k++)
+	{
+		residual=(*ptr_to_vector)%2;
+		if(residual==0)
+		{
+			printf("\nElemento[%d] = %d --> PAR",k,*ptr_to_vector);
+		}
+		else
+		{
+			printf("\nElemento[%d] = %d --> IMPAR",k,*ptr_to_vector);
+		}
+		ptr_to_vector++;
+	}
+	free(ptr_to_vector);
+}
+
+void exerciseCode_3(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int *ptr_to_vector=NULL;
+	ptr_to_vector = readData(3);
+	ordDescending(ptr_to_vector,3);
+	printf("El elemento mas grande es: %d", *ptr_to_vector);
+	free(ptr_to_vector);
+}
+
+void exerciseCode_4(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int i=0,n=0,aprobados=0,suspensos=0,dieces=0,ceros=0;
+	int *notas=NULL;
+	printf("\n Digite el numero de alumnos registrados: ");
+	scanf("%d",&n);
+	notas=reserva(n);
+	do{
+		printf("\n Introduzca la nota[%d]: ",i);
+		scanf("%d",notas);
+		/*Acumulador de aprobados o reprobados*/
+		if((*notas) >= 5)
+		{
+			aprobados++;
+		}
+		else
+		{
+			suspensos++;
+		}
+
+		if((*notas) == 10)
+		{
+			dieces++;
+		}
+
+		if((*notas) == 0)
+		{
+			ceros++;
+		}
+		i++;
+		notas++;
+	}while(i<n);
+
+	printf("\nEl porcentaje de aprobados es: %f ",((float)aprobados/n)*100);
+	printf("\nEl porcentaje de suspensos es: %f ",((float)suspensos/n)*100);
+}
+
+void exerciseCode_5(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int k=0,elements=0,residual=0, acumulador[2]={0,0};
+	int *ptr_to_vector=NULL;
+	printf("%s\n",__FUNCTION__);
+	printf("Digita el numero de elementos a leer: ");
+	scanf("%d",&elements);
+	ptr_to_vector = readData(elements);
+
+	for(k=0;k<elements;k++)
+	{
+		residual=(*ptr_to_vector)%2;
+		if(residual==0)
+		{
+			acumulador[0]=acumulador[0]+*ptr_to_vector;
+		}
+		else
+		{
+		acumulador[1]++;
+		}
+		ptr_to_vector++;
+	}
+	printf("La suma de los pares es: %d y hay en total %d numeros impares",acumulador[0],acumulador[1]);
+	free(ptr_to_vector);
+}
+
+void exerciseCode_6(void)
+{
+	printf("%s\n",__FUNCTION__);
+}
+
+void exerciseCode_7(void)
+{
+	printf("%s\n",__FUNCTION__);
+
+	/*LOCAL VARIABLES*/
+	int* ptr_local=NULL;
+	printf("Introduzca la medición de cada uno de los lados del triangulo \n");
+	ptr_local = readData(3);
+	/*Verificación de datos*/
+	if(ptr_local[0] <= 0 || ptr_local[1] <= 0 || ptr_local[2] <= 0)
+	{
+		printf("Los datos introducidos son incorrectos");
+	}
+
+	/*Condicional para determinar el tipo de tringulo*/
+	if((ptr_local[0]*ptr_local[1]*ptr_local[2])== (3*ptr_local[0]))
+	{
+		/*Triangulo Equilatero*/
+		printf("\n Triangulo Equilatero");
+	}
+
+	else
+	{
+		if((ptr_local[0]==ptr_local[1]) || (ptr_local[0]==ptr_local[2]) || (ptr_local[3]==ptr_local[2]) || (ptr_local[3]==ptr_local[1]))
+		{
+			/*Triangulo Isoceles*/
+			printf("\n Triangulo Isoceles");
+		}
+
+		else
+		{
+			/*Triangulo Escaleno*/
+			printf("\n Triangulo Escaleno");
+		}
+	}
+}
+
+void exerciseCode_8(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int *ptr_random;
+	int i=0;
+	int arreglo[125];
+
+	ptr_random = reserva(125);
+	arregloAleatorio(ptr_random,125);
+	for ( i=0; i<125;i++)
+	{
+		arreglo[i]=ptr_random[i];
+		printf("%d ",arreglo[i]);
+	}
+	free(ptr_random);
+}
+
+void exerciseCode_9(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int i= 0;
+	printf("Los multiplos de 3 entre el numero 1 y 3000 son: \n");
+	for(i=1;i<=3000;i++)
+	{
+		if(i%3==0)
+		{
+			printf("%d ",i);
+		}
+		else
+		{
+			/*No es multiplo de 3*/
+		}
+	}
+}
+
+void exerciseCode_10(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int elementos=0, i=0, acumulador=0;
+	int *ptr_serie=NULL;
+	printf("\nDigite el numero de datos a introducir: ");
+	scanf("%d",&elementos);
+	ptr_serie= reserva(elementos);
+	ptr_serie= readData(elementos);
+
+	for(i=0; i<elementos; i++)
+	{
+		acumulador = acumulador + *ptr_serie;
+		ptr_serie++;
+	}
+	printf("\n La media aritmetica es: %f", (float)acumulador/elementos);
+	free(ptr_serie);
+}
+
+void exerciseCode_11(void)
+{
+	printf("%s\n",__FUNCTION__);
+}
+
+void exerciseCode_12(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int entero=0,resultado=0;
+	printf("\nDigite el numero entero que se requiere calcular su factorial: ");
+	scanf("%d",&entero);
+	resultado=factorial(entero);
+	printf(" %d! es igual a %d",entero,resultado);
+}
+
+void exerciseCode_13(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int elementos=0;
+	int *ptr_serie=NULL;
+	printf("\nDigite el numero de datos a introducir: ");
+	scanf("%d",&elementos);
+	ptr_serie = reserva(elementos);
+	ptr_serie = readData(elementos);
+	ordDescending(ptr_serie,elementos);
+	printf("\n El numero mayor de los elementos es %d",ptr_serie[0]);
+	free(ptr_serie);
+}
+
+void exerciseCode_14(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int i=0, j=0,elementos=0;
+	printf("\nIntroduce las dimensiones del cuadrado: ");
+	scanf("%d", &elementos);
+	for (i=1; i<=elementos;i++)
+	{
+		for(j=1;j<=elementos;j++)
+		{
+			if(i==1 || i==elementos)
+			{
+				gotoxy(10+j,30+i);
+				printf("*");
+			}
+			else
+			{
+				if(j==1 || j==elementos)
+				{
+					gotoxy(10+j,30+i);
+					printf("*");
+				}
+				else
+				{
+					gotoxy(10+j,30+i);
+					printf(" ");
+				}
+			}
+		}
+	}
+}
+
+void exerciseCode_15(void)
+{
+	printf("%s\n",__FUNCTION__);
+	unsigned int cantidad=0, contador=0;
+	float precio=0;
+	float acumulador = 0;
+	do{
+		printf("\nIntroduzca la cantidad vendida del objeto [%d]: ",contador+1);
+		scanf("%d",&cantidad);
+		if(cantidad == 0)
+		{
+			break;
+		}
+		printf("\nIntroduzca el precio del objeto [%d]: ",contador+1);
+		scanf("%f",&precio);
+		acumulador = acumulador +(cantidad*precio);
+		contador++;
+	}while(1);
+	printf("\n El total a pagar es  = %f",acumulador);
+}
+
+void exerciseCode_16(void)
+{
+	printf("%s\n",__FUNCTION__);
+	unsigned int no_horas=0;
+	unsigned int salario=0;
+	char interruptor=1;
+	char yes_no = 'D';
+	const unsigned int hora_normal=15;
+	const unsigned int hora_extra=22;
+	do
+	{
+		printf("\nIntroduzca el numero de horas completadas en la semana: ");
+		scanf("%d", &no_horas);
+		if(no_horas>35)
+		{
+			salario = 35*hora_normal+(no_horas-35)* hora_extra;
+		}
+		else
+		{
+			salario = no_horas*hora_normal;
+		}
+		printf("\nSalario = %d pesos",salario);
+		clearinputBuffer();
+		for(;;)
+		{
+			printf("\nDesea calcular otro salario? (Y/N)");
+			scanf("%c",&yes_no);
+			if (yes_no == 'Y')
+			{
+				interruptor = 1;
+				yes_no=0;
+				break;
+			}
+			else if(yes_no == 'N')
+			{
+				interruptor=0;
+				yes_no=0;
+				break;
+			}
+		}
+	}while(interruptor);
+}
+
+void exerciseCode_17(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int numero=0;
+	clearinputBuffer();
+	for(;;)
+	{
+		printf("Introduzca el numero entero= ");
+		scanf("%d",&numero);
+		if(numero==0)
+		{
+			break;
+		}
+	}
+}
+
+void exerciseCode_18(void)
+{
+	printf("%s\n",__FUNCTION__);
+	printf("\nOperaciones Matriciales");
+	int **ptr = NULL;
+	int **ptr_b = NULL;
+	int **resultado = NULL;
+	int n=3, m=3,contador;
+	int i,j,k,temporal;
+
+	//reservaMatriz(2,2,ptr);
+	//reservaMatriz(2,2,ptr_b);
+
+	ptr = (int **) malloc(m*sizeof(int *));
+
+	for( contador=0; contador<n; contador++)
+	{
+		ptr[contador] = (int *) reserva(n);
+	}
+
+	ptr_b = (int **) malloc(m*sizeof(int *));
+
+	for( contador=0; contador<n; contador++)
+	{
+		ptr_b[contador] = (int *) reserva(n);
+	}
+
+	resultado = (int **) malloc(m*sizeof(int *));
+
+	for( contador=0; contador<n; contador++)
+	{
+		resultado[contador] = (int *) reserva(n);
+	}
+
+	/*Leer Matriz A*/
+	leerMatriz(2,2,ptr);
+	/*Leer Matriz B*/
+	leerMatriz(2,2,ptr_b);
+	m=2;
+	n=2;
+	k=2;
+
+	/*SUMA DE MATRICES*/
+	for(i=0;i<m;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			(resultado[i])[j]=(ptr[i])[j]+(ptr_b[i])[j];
+		}
+	}
+
+	printf("\n El resultado de la suma de matrices es: \n");
+	imprimirMatriz(2,2,resultado);
+
+	/*RESTA DE MATRICES*/
+	for(i=0;i<m;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			(resultado[i])[j]=(ptr[i])[j]-(ptr_b[i])[j];
+		}
+	}
+
+	printf("\n El resultado de la resta de matrices es: \n");
+	imprimirMatriz(2,2,resultado);
+
+	/*MULTIPLICACION DE MATRICES*/
+	for (i = 0 ; i < n ; i++ ) //i para las filas de la matriz resultante
+	{
+		for (k = 0 ; k < n ; k++ ) // k para las columnas de la matriz resultante
+		{
+			temporal = 0 ;
+			for (j = 0 ; j < n ; j++ ) //j para realizar la multiplicacion de
+			{                                   //los elementos   de la matriz
+				temporal += (ptr[i])[j] * (ptr_b[i])[j];
+				(resultado[i])[k] = temporal ;
+				printf("\ntemporal adentro= %d",temporal);
+			}
+			printf("\ntemporal afuera= %d",temporal);
+		}
+	}
+
+	printf("\n El resultado de la multiplicacion de matrices es: \n");
+	imprimirMatriz(2,2,resultado);
+
+/*	Desplegar en pantalla
+
+
+	imprimirMatriz(2,2,ptr);
+	imprimirMatriz(2,2,ptr_b);*/
+}
+
+void exerciseCode_19(void)
+{
+	printf("%s\n",__FUNCTION__);
+	unsigned int i;
+	printf("\nRangos de colores: ");
+	printf("\nColor 1: 0 a %f",(float)255/16);
+	for(i=1;i<=15;i++)
+	{
+	printf("\nColor %d: %f a %f",i+1,i*((float)255/16),(i+1)*((float)255/16));
+	}
+}
+
+void exerciseCode_20(void)
+{
+	printf("%s\n",__FUNCTION__);
+	printf("Impresion en dos colmnas");
+	unsigned int n=100;
+	unsigned int r=0;
+	for(n=101;n>0;n--)
+	{
+		printf("%d",n);
+		printf("\t %d",r);
+		printf("\n");
+		r++;
+	}
+}
+
+void exerciseCode_21(void)
+{
+	printf("%s\n",__FUNCTION__);
+	unsigned int numero=0,n=1;
+	printf("Introduzca un numero entero positivo: ");
+	scanf("%d",&numero);
+	for(n=1;n<=numero;n++)
+	{
+		printf("%d",n);
+		if(n*2<=numero)
+		{
+			printf("\t %d",n*2);
+		}
+		if(n*3<=numero)
+		{
+			printf("\t %d",n*3);
+		}
+		printf("\n");
+	}
+}
+
+void exerciseCode_22(void)
+{
+	printf("%s\n",__FUNCTION__);
+}
+
+void exerciseCode_23(void)
+{
+	printf("%s\n",__FUNCTION__);
+	unsigned int selector;
+	int numero,resultado;
+	char interruptor=1;
+	while(interruptor==1)
+	{
+		printf("\n Menu Principal");
+		printf("\n 1 Salir");
+		printf("\n 2 Sumatorio");
+		printf("\n 3 Factorial");
+		printf("\n Digite su seleccion: ");
+		scanf("%d",&selector);
+		switch(selector)
+		{
+		case 1:
+		{
+			/*Salir*/
+			interruptor=0;
+			break;
+		}
+
+		case 2:
+		{
+			printf("\nIntroduzca un numero: ");
+			scanf("%d",&numero);
+			resultado= sumatoria(numero);
+			printf("\nResultado: %d",resultado);
+			break;
+		}
+		case 3:
+		{
+			printf("\nIntroduzca un numero: ");
+			scanf("%d",&numero);
+			resultado= factorial(numero);
+			printf("\nResultado: %d",resultado);
+			break;
+		}
+		default:
+		{
+			/*Do nothing*/
+			break;
+		}
+		}
+	}
+}
+
+void exerciseCode_24(void)
+{
+	printf("%s\n",__FUNCTION__);
+}
+
+void exerciseCode_25(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int *numero;
+	numero=reserva(1);
+	printf("Introduzca un numero entero: ");
+	scanf("%d",numero);
+	is_primo(numero);
+
+	if(*numero)
+	{
+		printf("\n El numero es primo");
+	}
+	else
+	{
+		printf("\n El numero NO es primo");
+	}
+	free(numero);
+}
+
+void exerciseCode_26(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int *ptr_arreglo=NULL;
+	const int total=10;
+	ptr_arreglo=reserva(total);
+	ptr_arreglo=readData(total);
+	ordAscending(ptr_arreglo,total);
+	printf("\nEl numero mayor es %d y el menos es %d",ptr_arreglo[0],ptr_arreglo[total-1]);
+}
+
+void exerciseCode_27(void)
+{
+	printf("%s\n",__FUNCTION__);
+	int *ptr_numeros=NULL;
+	unsigned int elementos =0;
+	unsigned int i=0,k=0,total=0;
+	unsigned a=0;
+	int vector[10];
+	printf("\nIntroduce el numero de elementos: ");
+	scanf("%d",&elementos);
+	ptr_numeros=reserva(elementos);
+	ptr_numeros=readData(elementos);
+	while(k<elementos)
+	{
+		for(i=1;i<=ptr_numeros[k];i++)
+		{
+			if((ptr_numeros[k]%i)==0)
+			{
+				a++;
+			}
+			else
+			{
+				/*Do nothing*/
+			}
+		}
+
+		if(a==2)
+
+		{
+			vector[k]=1;
+			total++;
+		}
+		else
+		{
+			vector[k]=0;
+		}
+		a=0;
+		k++;
+	}
+	/*impresion de datos*/
+	printf("\nEl total de numeros primos encontrados es de %d y son: ",total);
+	for(i=0; i<elementos;i++)
+	{
+		if(vector[i]==1)
+		{
+			printf("%d ",ptr_numeros[i]);
+		}
+	}
+	free(ptr_numeros);
+}
+
+int* readData(int elements)
+{
+   int k=0;
+   int *ptr_to_array=NULL;
+   int *ptr_aux=NULL;
+
+   ptr_to_array=reserva(elements);
+   ptr_aux=ptr_to_array;
+
+   for (k=0; k<elements; k++)
+   {
+	  printf("\nCaptura Elemento[%d] = ",k+1);
+	  scanf("%d", ptr_to_array);
+	  ptr_to_array++;
+   }
+
+return ptr_aux;
+}
+
+int *reserva(int elementos)
+{
+    int *ptrAux;
+    ptrAux = (int *)malloc(elementos*sizeof(int));
+    return ptrAux;
+}
+
+void gotoxy(int x,int y){
+      HANDLE hcon;
+      hcon = GetStdHandle(STD_OUTPUT_HANDLE);
+      COORD dwPos;
+      dwPos.X = x;
+      dwPos.Y= y;
+      SetConsoleCursorPosition(hcon,dwPos);
+ }
+
+void arregloAleatorio(int* a,int elementos)
+{
+	int i=0;
+	srand (time(NULL));
+
+	for(i =0; i<elementos ;i++)
+	{
+		*a=rand() % 10;
+		a++;
+	}
+}
+
+int factorial(int n)
+{
+	if (n==1)
+	{
+		return 1;
+	}
+	return (n*factorial(n-1 )) ;
+}
+
+int sumatoria(int n)
+{
+	if (n==1)
+	{
+		return 1;
+	}
+	return (n+sumatoria(n-1)) ;
+}
+
+void clearinputBuffer(void)
+{
+	char c;
+	do
+	{
+		c=getchar();
+	}while(c!='\n' && c!= EOF);
+}
+
+void is_primo(int *ptr)
+{
+	int i=0,a=0;
+
+	for(i=1;i<=*ptr;i++)
+	{
+		if((*ptr%i)==0)
+		{
+			a++;
+		}
+		else
+		{
+			/*Do nothing*/
+		}
+	}
+
+	if(a==2)
+
+	{
+		*ptr=1;
+	}
+	else
+	{
+		*ptr=0;
+	}
+}
+
+void leerMatriz(int m, int n, int **ptr)
+{
+	unsigned i=0,j=0,numero;
+
+	for(i=0;i<m;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			printf("\nIntroduce el elemento [%d][%d] = ",j+1,i+1);
+			scanf("%d",&numero);
+			(ptr[i])[j]= numero;
+		}
+	}
+/*	printf("\n");
+	printf("%d",(ptr[1])[1]);*/
+
+}
+
+void imprimirMatriz(int m, int n, int **ptr)
+{
+	unsigned i=0,j=0;
+
+	for(i=0;i<m;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			if(j==0)
+			{
+				printf("\t[%d",(ptr[j])[i]);
+			}
+			else if(j==n-1)
+			{
+				printf("\t%d]",(ptr[j])[i]);
+			}
+			else
+			{
+				printf("\t%d",(ptr[j])[i]);
+			}
+		}
+		printf("\n");
+	}
+}

@@ -28,37 +28,36 @@ void clearinputBuffer(void);
 void is_primo(int *ptr);
 void leerMatriz(int m, int n, int **ptr);
 void imprimirMatriz(int m, int n, int **ptr);
-void recoverMemory(int m, int n, int **ptr);
 
 #define EXERCISE_LIST\
 	  /**********(Exercise Description)****/       \
-	DISPLAY_LIST("Ejercicio 1 \n")\
-	DISPLAY_LIST("Ejercicio 2 \n")\
-	DISPLAY_LIST("Ejercicio 3 \n" )\
-	DISPLAY_LIST("Ejercicio 4 \n" )\
-	DISPLAY_LIST("Ejercicio 5  \n" )\
-	DISPLAY_LIST("Ejercicio 6 \n" )\
-	DISPLAY_LIST("Ejercicio 7 \n" )\
-	DISPLAY_LIST("Ejercicio 8 \n" )\
-	DISPLAY_LIST("Ejercicio 9 \n" )\
-	DISPLAY_LIST("Ejercicio 10 \n" )\
-	DISPLAY_LIST("Ejercicio 11 \n" )\
-	DISPLAY_LIST("Ejercicio 12 \n" )\
-	DISPLAY_LIST("Ejercicio 13 \n" )\
-	DISPLAY_LIST("Ejercicio 14 \n" )\
-	DISPLAY_LIST("Ejercicio 15 \n" )\
-	DISPLAY_LIST("Ejercicio 16 \n" )\
-	DISPLAY_LIST("Ejercicio 17 \n" )\
-	DISPLAY_LIST("Ejercicio 18 \n" )\
-	DISPLAY_LIST("Ejercicio 19 \n" )\
-	DISPLAY_LIST("Ejercicio 20 \n" )\
-	DISPLAY_LIST("Ejercicio 21 \n" )\
-	DISPLAY_LIST("Ejercicio 22 \n" )\
-	DISPLAY_LIST("Ejercicio 23 \n" )\
-	DISPLAY_LIST("Ejercicio 24 \n" )\
-	DISPLAY_LIST("Ejercicio 25 \n" )\
-	DISPLAY_LIST("Ejercicio 26 \n" )\
-	DISPLAY_LIST("Ejercicio 27 \n" )\
+	DISPLAY_LIST("Ejercicio 1: Leer dos numeros enteros.\n")\
+	DISPLAY_LIST("Ejercicio 2: Par o Impar. \n")\
+	DISPLAY_LIST("Ejercicio 3: El mayor de tres numeros. \n" )\
+	DISPLAY_LIST("Ejercicio 4: Seudocodigo en C. \n" )\
+	DISPLAY_LIST("Ejercicio 5: Suma de pares y cantidad de impares.  \n" )\
+	DISPLAY_LIST("Ejercicio 6: Sucursales de almacenes. \n" )\
+	DISPLAY_LIST("Ejercicio 7: Tipo de Triangulo. \n" )\
+	DISPLAY_LIST("Ejercicio 8: Elementos aleatorios. \n" )\
+	DISPLAY_LIST("Ejercicio 9: Multiplos de 3. \n" )\
+	DISPLAY_LIST("Ejercicio 10: Media aritmetica. \n" )\
+	DISPLAY_LIST("Ejercicio 11: Codigo ASCII \n" )\
+	DISPLAY_LIST("Ejercicio 12: Factorial. \n" )\
+	DISPLAY_LIST("Ejercicio 13: Mayor de una serie. \n" )\
+	DISPLAY_LIST("Ejercicio 14: Imprimir un cuadrado. \n" )\
+	DISPLAY_LIST("Ejercicio 15: Cantidades y precios. \n" )\
+	DISPLAY_LIST("Ejercicio 16: Salario Semanal. \n" )\
+	DISPLAY_LIST("Ejercicio 17: Leer numeros enteros. \n" )\
+	DISPLAY_LIST("Ejercicio 18: Operaciones de Matrices. \n" )\
+	DISPLAY_LIST("Ejercicio 19: 16 Colores. \n" )\
+	DISPLAY_LIST("Ejercicio 20: Dos columnas de numeros. \n" )\
+	DISPLAY_LIST("Ejercicio 21: Tres columnas de numeros. \n" )\
+	DISPLAY_LIST("Ejercicio 22: Histograma. \n" )\
+	DISPLAY_LIST("Ejercicio 23: Mostrar Menu \n" )\
+	DISPLAY_LIST("Ejercicio 24: Sucesion de Fibonacci. \n" )\
+	DISPLAY_LIST("Ejercicio 25: Numeros primos. \n" )\
+	DISPLAY_LIST("Ejercicio 26: Mayor y menos de una serie. \n" )\
+	DISPLAY_LIST("Ejercicio 27: Cuantos numeros primos. \n" )\
 	DISPLAY_LIST("To exit \n" )\
 
 #define FUNCTION_LIST\
@@ -111,9 +110,9 @@ FUNCTION_LIST
 
 int main(void) {
 	int selector=0;
-	printf("Choose one exercise from below list to execute: \n");
+	printf("Elija el ejercicio a ejecutar: \n");
 	EXERCISE_LIST
-	printf("Enter your selection: ");
+	printf("Porfavor digite su seleccion: ");
 	scanf("%d",&selector);
 	switch (selector)
 	{
@@ -580,18 +579,78 @@ void exerciseCode_18(void)
 	printf("%s\n",__FUNCTION__);
 	printf("\nOperaciones Matriciales");
 	int **ptr = NULL;
-	int n=3, m=3,contador;
+	int **ptr_b = NULL;
+	int **resultado = NULL;
+	int n=3, m=3,k=3,contador;
+	int i=0,j=0,temporal=0;
 
+   /*Reserva de memoria para las matrices*/
 	ptr = (int **) malloc(m*sizeof(int *));
 
 	for( contador=0; contador<n; contador++)
 	{
 		ptr[contador] = (int *) reserva(n);
 	}
-    /*Leer Matriz*/
-	leerMatriz(2,2,ptr);
-	/*Desplegar en pantalla*/
-	imprimirMatriz(2,2,ptr);
+
+	ptr_b = (int **) malloc(m*sizeof(int *));
+
+	for( contador=0; contador<n; contador++)
+	{
+		ptr_b[contador] = (int *) reserva(n);
+	}
+
+	resultado = (int **) malloc(m*sizeof(int *));
+
+	for( contador=0; contador<n; contador++)
+	{
+		resultado[contador] = (int *) reserva(n);
+	}
+
+	/*Leer Matriz A*/
+	leerMatriz(m,n,ptr);
+	/*Leer Matriz B*/
+	leerMatriz(m,n,ptr_b);
+
+	/*SUMA DE MATRICES*/
+	for(i=0;i<m;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			(resultado[i])[j]=(ptr[i])[j]+(ptr_b[i])[j];
+		}
+	}
+
+	printf("\n El resultado de la suma de matrices es: \n");
+	imprimirMatriz(m,n,resultado);
+
+	/*RESTA DE MATRICES*/
+	for(i=0;i<m;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			(resultado[i])[j]=(ptr[i])[j]-(ptr_b[i])[j];
+		}
+	}
+
+	printf("\n El resultado de la resta de matrices es: \n");
+	imprimirMatriz(m,n,resultado);
+
+	/*MULTIPLICACION DE MATRICES*/
+	for (i = 0 ; i < m ; i++ ) //i para las filas de la matriz resultante
+	{
+		for (k = 0 ; k < n ; k++ ) // k para las columnas de la matriz resultante
+		{
+			for (j = 0 ; j < m ; j++ ) //j para realizar la multiplicacion de
+			{                                   //los elementos   de la matriz
+				temporal += (ptr[i])[j] * (ptr_b[j])[k];
+			}
+			(resultado[i])[k] = temporal ;
+			temporal = 0 ;
+		}
+	}
+
+	printf("\n El resultado de la multiplicacion de matrices es: \n");
+	imprimirMatriz(m,n,resultado);
 }
 
 void exerciseCode_19(void)
@@ -893,30 +952,11 @@ void leerMatriz(int m, int n, int **ptr)
 		{
 			printf("\nIntroduce el elemento [%d][%d] = ",j+1,i+1);
 			scanf("%d",&numero);
-			**ptr= numero;
-			(*ptr)++;
+			(ptr[i])[j]= numero;
 		}
-		ptr++;
 	}
-
-/*	ptr--;
-	for(i=0;i<m;i++)
-	{
-		(*ptr)--;
-		for(j=0;j<n;j++)
-		{
-			//printf("\t%d",**ptr);
-			(*ptr)--;
-		}
-		//printf("\n");
-		ptr--;
-	}
-	ptr++;
-	(ptr[0])++;
-	printf("\n");
-	printf("%d",**ptr);
-	printf("\n");
-	printf("%d",(ptr[0])[0]);*/
+/*	printf("\n");
+	printf("%d",(ptr[1])[1]);*/
 
 }
 
@@ -928,13 +968,19 @@ void imprimirMatriz(int m, int n, int **ptr)
 	{
 		for(j=0;j<n;j++)
 		{
-			printf("\t%d",(ptr[j])[i]);
+			if(j==0)
+			{
+				printf("\t[%d",(ptr[j])[i]);
+			}
+			else if(j==n-1)
+			{
+				printf("\t%d]",(ptr[j])[i]);
+			}
+			else
+			{
+				printf("\t%d",(ptr[j])[i]);
+			}
 		}
 		printf("\n");
 	}
-}
-
-void recoverMemory(int m, int n, int **ptr)
-{
-
 }
