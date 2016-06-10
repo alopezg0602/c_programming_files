@@ -1,0 +1,7 @@
+01:57:34 **** Incremental Build of configuration Debug for project maze_algorithm ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o maze_solving.o "..\\maze_solving.c" 
+gcc -o maze_algorithm.exe maze_solving.o 
+
+01:57:34 Build Finished (took 515ms)
+

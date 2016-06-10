@@ -1,0 +1,30 @@
+/*
+ ============================================================================
+ Name        : maze_project.c
+ Author      : Aldo
+ Version     :
+ Copyright   : Your copyright notice
+ Description : C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAXSIZE 5
+
+typedef struct stack
+{
+    int stk[MAXSIZE];
+    int top;
+}Stack_T;
+
+void push(void);
+int  pop(void);
+void display(void);
+
+int main ()
+{
+
+}

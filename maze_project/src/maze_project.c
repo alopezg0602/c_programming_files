@@ -30,6 +30,7 @@ int main(){
     fgets(temp, 99, stdin);
     x = atoi(temp);
 
+
     //Declare character array of specified size to hold map
     char maze[y][x];
 

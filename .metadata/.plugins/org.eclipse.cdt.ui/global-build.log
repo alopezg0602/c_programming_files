@@ -1,16 +1,4 @@
-00:09:17 **** Incremental Build of configuration Debug for project stack_handling ****
-make all 
-Building file: ../src/stack_handling.c
-Invoking: Cross GCC Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/stack_handling.d" -MT"src/stack_handling.d" -o "src/stack_handling.o" "../src/stack_handling.c"
-../src/stack_handling.c: In function 'main':
-../src/stack_handling.c:67:1: warning: control reaches end of non-void function [-Wreturn-type]
- }
- ^
-Finished building: ../src/stack_handling.c
- 
-Building target: stack_handling
-Invoking: Cross GCC Linker
-gcc  -o "stack_handling"  ./src/stack_handling.o   
-Finished building target: stack_handling
- 
+01:57:34 **** Incremental Build of configuration Debug for project maze_algorithm ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o maze_solving.o "..\\maze_solving.c" 
+gcc -o maze_algorithm.exe maze_solving.o 

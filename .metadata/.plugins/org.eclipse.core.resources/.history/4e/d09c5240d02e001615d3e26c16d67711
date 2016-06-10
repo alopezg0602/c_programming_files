@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAXSIZE 5
+
+typedef struct stack
+{
+    int stk[MAXSIZE];
+    int top;
+}Stack_T;
+
+int main ()
+{
+	return 0;
+}

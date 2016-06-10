@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;maze_algorithm/maze_solving&apos; to &apos;maze_solving.c&apos;" description="Rename resource &apos;maze_solving&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="maze_solving" name="maze_solving.c" stamp="1465537617735" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;maze_algorithm/main_program&apos; to &apos;main_program.c&apos;" description="Rename resource &apos;main_program&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="main_program" name="main_program.c" stamp="1465538053115" updateReferences="true"/>
+</session>
