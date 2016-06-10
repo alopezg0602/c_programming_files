@@ -14,3 +14,6 @@ Invoking: Cross GCC Linker
 gcc  -o "stack_handling"  ./src/stack_handling.o   
 Finished building target: stack_handling
  
+
+00:09:19 Build Finished (took 1s.411ms)
+
